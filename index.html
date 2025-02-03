@@ -4,29 +4,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Win Paing | Terminal Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Win Paing Soe | System Engineer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="terminal">
-        <div class="terminal-header">
-            <div class="terminal-buttons">
-                <div class="terminal-button close"></div>
-                <div class="terminal-button minimize"></div>
-                <div class="terminal-button maximize"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">WPS</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-        <div class="terminal-content">
-            <div id="output"></div>
-            <div class="input-line">
-                <span class="prompt">visitor@winpaing:~$</span>
-                <input type="text" id="command-input" autofocus>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="assets/profile.jpg" alt="Win Paing Soe" class="profile-img">
+                <h1>Win Paing Soe</h1>
+                <h2>System Engineer</h2>
+                <p>Cloud Infrastructure & System Administration Specialist</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn primary">Contact Me</a>
+                    <a href="#" class="btn secondary">Download CV</a>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="script.js"></script>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>A highly skilled System Administrator and Cloud Infrastructure Engineer with over 4 years of
+                    experience in managing Linux systems and cloud environments. Seeking a Technical Support Engineer
+                    position at Iron Software to apply my expertise in troubleshooting, cloud platforms, and automation
+                    to enhance the reliability and performance of C# API product offerings.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>System Administration</h3>
+                    <ul>
+                        <li>Linux System Administration</li>
+                        <li>GitLab, GitHub</li>
+                        <li>Docker, Podman, Kubernetes</li>
+                        <li>Ansible, Terraform</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & Infrastructure</h3>
+                    <ul>
+                        <li>AWS, GCP, Azure</li>
+                        <li>KVM, Vagrant</li>
+                        <li>Backup and Restore</li>
+                        <li>CI/CD Pipelines</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Database & Middleware</h3>
+                    <ul>
+                        <li>MySQL, Oracle Database 12c</li>
+                        <li>Middleware (JBoss, Tomcat)</li>
+                        <li>Database Administration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Cloud Engineer</h3>
+                        <h4>Myanmar Payment Solution Services Co., Ltd</h4>
+                        <p class="date">2023 - Present</p>
+                        <ul>
+                            <li>Set up monitoring and alerting systems</li>
+                            <li>Develop backup and recovery procedures</li>
+                            <li>Design and implement cloud infrastructure solutions</li>
+                            <li>Maintain CI/CD pipelines</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>System/Application Support</h3>
+                        <h4>CHID BANK</h4>
+                        <p class="date">2019 - 2023</p>
+                        <ul>
+                            <li>Provided technical support for Temenos T24</li>
+                            <li>Managed Linux systems and banking applications</li>
+                            <li>Performed Oracle database operations</li>
+                            <li>Configured JBoss and testing environments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>sysadm.winpaingsoe@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+66 619 623 368</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Suk Sawat 78, Samut Prakan 10130, Thailand</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <p><a href="https://www.linkedin.com/in/win-paing-soe-b53183100/" target="_blank">LinkedIn
+                                Profile</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Win Paing Soe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>

@@ -32,7 +32,10 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <img src="assets/profile.jpg" alt="Win Paing Soe" class="profile-img">
+                <div class="profile-container">
+                    <img src="assets/profile.jpg" alt="Win Paing Soe" class="profile-img">
+                    <div class="profile-overlay"></div>
+                </div>
                 <h1>Win Paing Soe</h1>
                 <h2>System Engineer</h2>
                 <p>Cloud Infrastructure & System Administration Specialist</p>
@@ -161,3 +164,25 @@
 </body>
 
 </html>
+<!-- Add this after your footer and before closing body tag -->
+<div class="modal" id="cvModal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2 class="section-title">Download CV</h2>
+        <form class="download-form" id="downloadForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="company">Company (Optional)</label>
+                <input type="text" id="company" name="company">
+            </div>
+            <button type="submit" class="btn primary">Download CV</button>
+        </form>
+    </div>
+</div>

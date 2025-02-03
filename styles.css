@@ -5,30 +5,50 @@
 }
 
 body {
-    background-color: #1a1b26;
+    background: linear-gradient(45deg, #0a0a0a, #1a0f2c);
     font-family: 'Fira Code', monospace;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #a9b1d6;
+    color: #00ff9f;
 }
 
 .terminal {
     width: 90%;
     max-width: 900px;
     height: 80vh;
-    background-color: #1a1b26;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    background-color: rgba(16, 16, 26, 0.95);
+    border: 1px solid #00ff9f;
+    border-radius: 0;
+    box-shadow: 0 0 20px rgba(0, 255, 159, 0.2),
+                inset 0 0 20px rgba(0, 255, 159, 0.1);
     overflow: hidden;
+    position: relative;
+}
+
+.terminal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent,
+        #00ff9f,
+        transparent);
+    animation: scanline 4s linear infinite;
+}
+
+@keyframes scanline {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 .terminal-header {
-    background-color: #1f2335;
-    padding: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    background-color: #00ff9f;
+    padding: 8px;
 }
 
 .terminal-buttons {
@@ -39,50 +59,69 @@ body {
 .terminal-button {
     width: 12px;
     height: 12px;
-    border-radius: 50%;
+    border-radius: 0;
+    border: 1px solid #000;
 }
 
-.close {
-    background-color: #ff5f56;
-}
-
-.minimize {
-    background-color: #ffbd2e;
-}
-
-.maximize {
-    background-color: #27c93f;
-}
+.close { background-color: #ff2b2b; }
+.minimize { background-color: #ffd93d; }
+.maximize { background-color: #2ecc71; }
 
 .terminal-content {
     padding: 20px;
     height: calc(80vh - 32px);
     overflow-y: auto;
+    text-shadow: 0 0 8px rgba(0, 255, 159, 0.4);
+}
+
+.terminal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+    background: rgba(0, 255, 159, 0.1);
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+    background: #00ff9f;
 }
 
 .input-line {
     display: flex;
     margin-top: 10px;
+    border-bottom: 1px solid rgba(0, 255, 159, 0.2);
+    padding-bottom: 5px;
 }
 
 .prompt {
-    color: #7aa2f7;
+    color: #ff00ff;
     margin-right: 10px;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.4);
 }
 
 #command-input {
     background: none;
     border: none;
-    color: #a9b1d6;
+    color: #00ff9f;
     font-family: 'Fira Code', monospace;
     font-size: 1em;
     flex: 1;
     outline: none;
+    text-shadow: 0 0 8px rgba(0, 255, 159, 0.4);
 }
 
 .output-line {
-    margin: 5px 0;
-    line-height: 1.5;
+    margin: 8px 0;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 20px;
+}
+
+.output-line::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #ff00ff;
 }
 
 .pixel-icon {
@@ -92,4 +131,5 @@ body {
     image-rendering: pixelated;
     vertical-align: middle;
     margin-right: 10px;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 159, 0.4));
 }

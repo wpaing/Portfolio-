@@ -1,11 +1,74 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize AOS (Animate On Scroll)
-    AOS.init({
-        duration: 1000,
-        once: true
-    });
+    // Terminal typing effect with 8-bit ASCII art
+    const terminalLines = [
+        '╔════════════════════════╗',
+        '║    WIN PAING SOE      ║',
+        '║    DevOps Engineer    ║',
+        '╚════════════════════════╝',
+        '',
+        'whoami > Win Paing Soe',
+        'pwd > /DevOps/Engineer',
+        'ls -la skills/',
+        '> [🐳] Docker, [☸️] Kubernetes',
+        '> [🚀] AWS, [🔧] Terraform',
+        '> [🐧] Linux, [🔄] CI/CD',
+        'uptime > 4+ years experience',
+        '',
+        'status: ready for deployment 🚀'
+    ];
 
-    // Smooth scrolling for navigation links
+    const terminal = document.createElement('div');
+    terminal.className = 'terminal-container pixel-border';
+    document.querySelector('.hero-content').prepend(terminal);
+
+    // Add retro terminal header
+    const terminalHeader = document.createElement('div');
+    terminalHeader.className = 'terminal-header pixel-border';
+    terminalHeader.innerHTML = `
+        <div class="terminal-buttons">
+            <span class="pixel-dot"></span>
+            <span class="pixel-dot"></span>
+            <span class="pixel-dot"></span>
+        </div>
+        <div class="terminal-title">win@devops:~$</div>
+    `;
+    terminal.appendChild(terminalHeader);
+
+    const typeWriter = (element, text, speed = 50) => {
+        let i = 0;
+        return new Promise(resolve => {
+            const type = () => {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    if (text.charAt(i) === ']') {
+                        element.innerHTML += '<span class="blink">_</span>';
+                    }
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    resolve();
+                }
+            };
+            type();
+        });
+    };
+
+    const createTerminalLine = async (text) => {
+        const line = document.createElement('div');
+        line.className = 'terminal-line';
+        terminal.appendChild(line);
+        await typeWriter(line, '$ ' + text);
+    };
+
+    // Execute terminal animation
+    (async () => {
+        for (const line of terminalLines) {
+            await createTerminalLine(line);
+            await new Promise(resolve => setTimeout(resolve, 500));
+        }
+    })();
+
+    // Existing smooth scrolling code
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -15,55 +78,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navbar scroll effect
+    // Enhanced navbar scroll effect with blur
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.background = 'rgba(10, 25, 47, 0.95)';
+            navbar.style.backdropFilter = 'blur(10px)';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+            navbar.style.background = 'rgba(10, 25, 47, 0.85)';
+            navbar.style.backdropFilter = 'blur(5px)';
         }
     });
 
-    // Add scroll to top functionality
-    const scrollButton = document.createElement('button');
-    scrollButton.id = 'scroll-top';
-    scrollButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    document.body.appendChild(scrollButton);
+    // Add skill progress animation
+    const skills = document.querySelectorAll('.skill-item');
+    const observerOptions = {
+        threshold: 0.5
+    };
 
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            scrollButton.classList.add('show');
-        } else {
-            scrollButton.classList.remove('show');
-        }
-    });
-
-    scrollButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // Add active state to navigation
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 60) {
-                current = section.getAttribute('id');
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('skill-animate');
             }
         });
+    }, observerOptions);
+
+    skills.forEach(skill => skillObserver.observe(skill));
     
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').slice(1) === current) {
-                link.classList.add('active');
-            }
+    // Add pixel art skill icons
+    const skillIcons = {
+        'Docker': '🐳',
+        'Kubernetes': '☸️',
+        'AWS': '☁️',
+        'Linux': '🐧',
+        'Git': '📦',
+        'CI/CD': '🔄'
+    };
+
+    // Add retro hover effects to skill items
+    skills.forEach(skill => {
+        skill.addEventListener('mouseover', () => {
+            skill.classList.add('pixel-hover');
+        });
+        skill.addEventListener('mouseout', () => {
+            skill.classList.remove('pixel-hover');
         });
     });
 });

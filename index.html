@@ -1,135 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Win Paing Soe - System Engineer</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Win Paing | Terminal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">WPS</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <img src="images/profile.jpg" alt="Win Paing Soe" class="profile-image">
-                <h1>WIN PAING SOE</h1>
-                <h2>System Engineer</h2>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/win-paing-soe-b53183100/" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <div class="terminal-button close"></div>
+                <div class="terminal-button minimize"></div>
+                <div class="terminal-button maximize"></div>
             </div>
         </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>Personal Profile</h2>
-            <p>A highly skilled System Administrator and Cloud Infrastructure Engineer with over 4 years of experience in managing Linux systems and cloud environments. Seeking a Technical Support Engineer position to apply my expertise in troubleshooting, cloud platforms, and automation to enhance the reliability and performance of C# API product offerings.</p>
-        </div>
-    </section>
-
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2>Work Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Cloud Engineer</h3>
-                        <h4>Myanmar Payment Solution Services Co., Ltd</h4>
-                        <p class="date">2023 - NOW</p>
-                        <ul>
-                            <li>Set up and managed monitoring and alerting systems</li>
-                            <li>Develop backup and recovery procedures</li>
-                            <li>Designed and implemented cloud infrastructure solutions</li>
-                            <li>Developed and maintained CI/CD pipelines</li>
-                            <li>Managed and optimized cloud resources</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>System/Application Support</h3>
-                        <h4>CHID BANK</h4>
-                        <p class="date">2019 - 2023</p>
-                        <ul>
-                            <li>Provided technical support for Temenos T24 Core Banking platform</li>
-                            <li>Managed and optimized Linux systems</li>
-                            <li>Performed Oracle database operations</li>
-                            <li>Installed and configured JBoss application servers</li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="terminal-content">
+            <div id="output"></div>
+            <div class="input-line">
+                <span class="prompt">visitor@winpaing:~$</span>
+                <input type="text" id="command-input" autofocus>
             </div>
         </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <i class="contact-icon fas fa-envelope pixel-icon"></i>
-                    <div class="contact-title">EMAIL</div>
-                    <div class="contact-value">
-                        <a href="mailto:sysadm.winpaingsoe@gmail.com">
-                            sysadm.winpaingsoe@gmail.com
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="contact-icon fas fa-phone pixel-icon"></i>
-                    <div class="contact-title">PHONE</div>
-                    <div class="contact-value">
-                        <a href="tel:+66619623368">
-                            +66 619 623 368
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="contact-icon fas fa-map-marker-alt pixel-icon"></i>
-                    <div class="contact-title">LOCATION</div>
-                    <div class="contact-value">
-                        Suk Sawat 78, Samut Prakan 10130, Thailand
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="contact-icon fab fa-linkedin pixel-icon"></i>
-                    <div class="contact-title">LINKEDIN</div>
-                    <div class="contact-value">
-                        <a href="https://www.linkedin.com/in/win-paing-soe-b53183100/" target="_blank">
-                            /win-paing-soe-b53183100
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Win Paing Soe. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-    <script src="js/contact.js"></script>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>

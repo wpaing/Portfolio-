@@ -13,7 +13,22 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <div class="logo">WPS</div>
+            <!-- Replace the empty logo div with this -->
+            <div class="logo">
+                <div class="logo-container">
+                    <img src="assets/logos/redhat.png" alt="RedHat" class="tech-logo">
+                    <img src="assets/logos/ubuntu.png" alt="Ubuntu" class="tech-logo">
+                    <img src="assets/logos/fedora.png" alt="Fedora" class="tech-logo">
+                    <img src="assets/logos/aws.png" alt="AWS" class="tech-logo">
+                    <img src="assets/logos/gcp.png" alt="GCP" class="tech-logo">
+                    <img src="assets/logos/digitalocean.png" alt="DigitalOcean" class="tech-logo">
+                    <img src="assets/logos/kubernetes.png" alt="Kubernetes" class="tech-logo">
+                    <img src="assets/logos/ansible.png" alt="Ansible" class="tech-logo">
+                    <img src="assets/logos/terraform.png" alt="Terraform" class="tech-logo">
+                    <img src="assets/logos/cicd.png" alt="CI/CD" class="tech-logo">
+                    <img src="assets/logos/git.png" alt="Git" class="tech-logo">
+                </div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -197,17 +212,17 @@
                 </div>
                 <div class="contact-form">
                     <h3>Send Message</h3>
-                    <form id="messageForm">
+                    <form id="messageForm" onsubmit="return sendMessage(event)">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" id="senderName" placeholder="Your Name" required>
                             <span class="focus-border"></span>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" id="senderEmail" placeholder="sysadm.winpaingsoe@gmail.com" required>
                             <span class="focus-border"></span>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" required></textarea>
+                            <textarea id="messageContent" placeholder="Your Message" required></textarea>
                             <span class="focus-border"></span>
                         </div>
                         <button type="submit" class="btn primary">Send Message</button>

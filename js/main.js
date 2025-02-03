@@ -24,4 +24,46 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.style.background = 'rgba(255, 255, 255, 0.8)';
         }
     });
+
+    // Add scroll to top functionality
+    const scrollButton = document.createElement('button');
+    scrollButton.id = 'scroll-top';
+    scrollButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    document.body.appendChild(scrollButton);
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollButton.classList.add('show');
+        } else {
+            scrollButton.classList.remove('show');
+        }
+    });
+
+    scrollButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Add active state to navigation
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 60) {
+                current = section.getAttribute('id');
+            }
+        });
+    
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').slice(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    });
 });

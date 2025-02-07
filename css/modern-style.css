@@ -1,13 +1,13 @@
 :root {
-    --primary-color: #00BCD4;
-    --secondary-color: #263238;
-    --accent-color: #FF4081;
-    --text-color: #2C3E50;
-    --light-bg: #ECEFF1;
-    --code-bg: #1E272C;
-    --terminal-green: #00FF00;
+    --primary-color: #2DD4BF;
+    --secondary-color: #1E293B;
+    --accent-color: #6366F1;
+    --text-color: #334155;
+    --light-bg: #F1F5F9;
+    --code-bg: #0F172A;
+    --terminal-green: #4ADE80;
     --white: #FFFFFF;
-    --grid-bg: #F5F7FA;
+    --grid-bg: #E2E8F0;
     --transition: all 0.3s ease;
 }
 
@@ -47,95 +47,64 @@ body {
 
 .hero {
     background: var(--code-bg);
-    color: var(--white);
-    position: relative;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(0,188,212,0.1), rgba(38,50,56,0.1));
-    pointer-events: none;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(45, 212, 191, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.1) 0%, transparent 40%);
 }
 
 .profile-container {
     border: 3px solid var(--primary-color);
-    box-shadow: 0 0 20px rgba(0,188,212,0.3);
-}
-
-.hero h1, .hero h2 {
-    color: var(--white);
-    font-family: 'Consolas', monospace;
-}
-
-.hero p {
-    color: var(--terminal-green);
-    font-family: 'Consolas', monospace;
-}
-
-.btn.primary {
-    background: var(--primary-color);
-    border: none;
-}
-
-.btn.secondary {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-}
-
-.section-title {
-    font-family: 'Consolas', monospace;
-    position: relative;
-    display: inline-block;
-}
-
-.section-title::before {
-    content: '>';
-    color: var(--primary-color);
-    margin-right: 10px;
-    font-family: 'Consolas', monospace;
+    box-shadow: 0 0 30px rgba(45, 212, 191, 0.2);
 }
 
 .skill-category {
-    background: var(--grid-bg);
-    border-left: 4px solid var(--primary-color);
-}
-
-.skill-category h3 {
-    font-family: 'Consolas', monospace;
-    color: var(--secondary-color);
-}
-
-.skill-category li::before {
-    content: ">";
-    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .timeline-item {
-    border-left: 3px solid var(--primary-color);
-    padding-left: 20px;
-    margin-bottom: 30px;
+    background: var(--light-bg);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
     position: relative;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -9px;
-    top: 0;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: var(--primary-color);
+    margin-bottom: 40px;
 }
 
 .contact-card {
-    background: var(--grid-bg);
-    border-left: 4px solid var(--primary-color);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+/* Add matrix-like background animation */
+@keyframes matrix {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.skills {
+    background: var(--code-bg);
+    background-image: 
+        linear-gradient(45deg, rgba(45, 212, 191, 0.05) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(99, 102, 241, 0.05) 25%, transparent 25%);
+    background-size: 60px 60px;
+    animation: matrix 20s linear infinite;
 }
 
 .contact-icon {
